@@ -1,109 +1,139 @@
-/* Reset & Base Styles */
+/* defining custom prpoperties for reusability, like color and shadow presets that are used throughout the code */
+:root {
+  --dark-green: #22543d;
+  --medium-green: #2f855a;
+  --light-green: #48bb78;
+  --pale-green: #a3d9a5;
+  --very-light-green: #f0fff4;
+  --section-bg: #ffffff;
+  --shadow: 0 2px 8px rgba(34, 84, 61, 0.1);
+}
+/* global reset here will remove the browsers default spacing to allow for consistency across all platforms and reduce redundancy */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+/* main font and text-color for the entire page */
 body {
   font-family: Arial, sans-serif;
+  background: var(--very-light-green);
+  color: var(--dark-green);
   line-height: 1.6;
-  color: #333;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  padding-top: 70px;
   min-height: 100vh;
 }
-
-/* Header */
-header {
+/* sticky navbar for better UX*/
+header,
+.sticky-nav {
   position: fixed;
   top: 0;
-  width: 100%;
-  background: #fff;
-  padding: 1em 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  left: 0;
+  right: 0;
+  background: var(--section-bg);
   z-index: 1000;
+  padding: 1em 0;
+  box-shadow: var(--shadow);
 }
-
+/* centering nav content, flewx display to ensure uniform spacing and structured positioning */
 nav {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1em;
 }
 
 .logo {
   font-size: 1.5em;
   font-weight: bold;
-  color: #667eea;
+  color: var(--medium-green);
   text-decoration: none;
 }
-
+/* mobile menu hides nav options by default and shows when .active is toggled */
 .nav-links {
-  list-style: none;
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: absolute;
+  top: 70px;
+  right: 1.5rem;
+  background: var(--section-bg);
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--pale-green);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(34, 84, 61, 0.1);
+  z-index: 1100;
+  width: 180px;
+}
+
+.nav-links.active {
   display: flex;
-  gap: 1.5em;
 }
 
 .nav-links a {
+  color: var(--dark-green);
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #667eea;
+.nav-links a:hover,
+.hamburger:hover span {
+  color: var(--light-green);
+  background-color: var(--light-green);
 }
 
 .hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
+  gap: 5px;
+  padding: 0.5em;
   cursor: pointer;
 }
 
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: #333;
-  margin: 4px 0;
+  background: var(--dark-green);
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
 }
 
-/* Main */
-main {
-  margin-top: 80px;
-}
-
+/* Sections */
 section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 3em 1em;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--pale-green);
 }
 
-/* Hero */
+section:last-of-type {
+  border-bottom: none;
+}
+
+.text-center {
+  text-align: center;
+}
+.mt-2 {
+  margin-top: 2rem;
+}
+
+/* Hero Section */
 .hero {
   text-align: center;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  color: #fff;
-  padding: 2.5em 1.5em;
+  color: var(--dark-green);
 }
-
-.hero h1 {
-  font-size: 2.2em;
-  margin-bottom: 0.5em;
-}
-
-.hero p {
-  font-size: 1.1em;
-}
-
+/* centering profile image and making it rounded */
 .profile-image-container {
-  margin: 0 auto 1.5em;
   width: 160px;
   height: 160px;
+  margin: 0 auto 1rem;
   border-radius: 50%;
   overflow: hidden;
+  border: 4px solid var(--light-green);
+  box-shadow: 0 5px 15px rgba(34, 84, 61, 0.2);
 }
 
 .profile-image {
@@ -111,106 +141,200 @@ section {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Contact Info */
 .contact-info {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
   justify-content: center;
-  margin-top: 1.5em;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  color: var(--medium-green);
+  font-weight: 600;
 }
 
-.contact-item {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 0.5em 1em;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
+ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-/* Utility */
+li {
+  margin-bottom: 0.5rem;
+}
+
+section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--pale-green);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
 .text-center {
   text-align: center;
 }
 
 .mt-2 {
-  margin-top: 2em;
+  margin-top: 2rem;
 }
 
-.mb-2 {
-  margin-bottom: 2em;
+section p {
+  line-height: 1.6;
+  color: var(--dark-green);
+  font-size: 1rem;
 }
 
-/* Scroll Top */
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.form-group {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--pale-green);
+  border-radius: 5px;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--light-green);
+  outline: none;
+}
+
+.submit-btn {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  background: var(--medium-green);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 500px;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #276749;
+}
+
+/* Scroll to Top */
 .scroll-top {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: #fff;
+  bottom: 30px;
+  right: 30px;
+  background: var(--medium-green);
+  color: white;
   border: none;
   border-radius: 50%;
   width: 45px;
   height: 45px;
-  display: none;
+  font-size: 1.5rem;
   cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(47, 133, 90, 0.5);
+  transition: background 0.3s ease;
   z-index: 1000;
-  transition: 0.3s ease;
-}
-
-.scroll-top:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
 }
 
 .scroll-top.show {
-  display: block;
+  display: flex;
+}
+
+.scroll-top:hover {
+  background: #276749;
+}
+
+/* Section Preview Scroll */
+.section-preview-wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1em;
+  gap: 1em;
+  background: #e0f2e9;
+}
+
+.section-preview {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  padding: 1em 1.5em;
+  border-radius: 8px;
+  background: var(--section-bg);
+  color: #2d6a4f;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.section-preview:hover {
+  background: #d8f3dc;
+}
+
+.section-preview a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.section-divider {
+  margin: 2em auto;
+  width: 60%;
+  border: none;
+  border-bottom: 3px solid #2d6a4f;
+  border-radius: 2px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hamburger {
-    display: flex;
+  .section-preview-wrapper {
+    flex-wrap: nowrap;
+    gap: 0.5em;
   }
 
-  .nav-links {
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    background: #fff;
+  .section-preview {
+    padding: 0.8em 1.2em;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info {
     flex-direction: column;
-    align-items: center;
-    padding-top: 2em;
-    transition: left 0.3s ease;
-  }
-
-  .nav-links.active {
-    left: 0;
-  }
-
-  .nav-links li {
-    margin: 1em 0;
-  }
-
-  .hero h1 {
-    font-size: 1.8em;
-  }
-
-  .hero p {
-    font-size: 1em;
+    gap: 0.8rem;
   }
 
   .profile-image-container {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
   }
 
-  section {
-    padding: 2em 1em;
+  .nav-links {
+    padding-top: 1.5rem;
   }
 }

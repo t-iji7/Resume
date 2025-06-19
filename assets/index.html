@@ -5,15 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Oluwaloseyitowi Iji - Software Engineer</title>
     <link rel="stylesheet" href="/assets/style.css" />
+    <!-- allow for email sending through the contact me section -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init("YOUR_PUBLIC_KEY"); // replace with your public key
+      })();
+    </script>
   </head>
   <body>
-    <!-- Header -->
     <header>
+      <!-- header and navigation section -->
       <nav>
-        <a href="#home" class="logo">Oluwaloseyitowi Iji</a>
+        <!-- site title -->
+        <a href="#home" class="logo">Oluwaloseyitowi Iji's Resume Website</a>
+        <!-- navigation links -->
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#about">About Me</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#experience">Experience</a></li>
@@ -21,6 +30,7 @@
           <li><a href="#awards">Awards</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        <!-- hamburger icon for responsive navigation -->
         <div class="hamburger">
           <span></span>
           <span></span>
@@ -28,45 +38,158 @@
         </div>
       </nav>
     </header>
-
-    <!-- Main -->
+    <!-- main resume website content -->
     <main>
-      <!-- Hero -->
+      <!-- introductory section -->
       <section id="home" class="hero">
         <div class="profile-image-container">
           <img
-            src="https://via.placeholder.com/160"
+            src="/assets/profilepicture.png"
             alt="Oluwaloseyitowi Iji"
             class="profile-image"
           />
         </div>
+        <!-- personal information -->
         <h1>Oluwaloseyitowi Iji</h1>
         <p>Aspiring Software Engineer | Community Leader | Global Innovator</p>
         <div class="contact-info">
-          <div class="contact-item">📧 teniolaiji@gmail.com</div>
-          <div class="contact-item">📱 +250 795188948</div>
-          <div class="contact-item">📍 Kigali, Rwanda</div>
+          <div class="contact-item">teniolaiji@gmail.com</div>
+          <div class="contact-item">+250 795188948</div>
+          <div class="contact-item">Kigali, Rwanda</div>
+        </div>
+        <!-- resume download button -->
+        <div class="download-resume">
+          <a
+            href="/assets/Oluwaloseytowi Resume.pdf"
+            download
+            class="download-btn"
+            >Download Resume (PDF)</a
+          >
         </div>
       </section>
-
-      <!-- About -->
-      <section id="about">
-        <h2 class="text-center">About Me</h2>
-        <p class="text-center mt-2" style="max-width: 800px; margin: auto">
-          I am an aspiring software engineer with strong leadership experience
-          organizing educational initiatives and community programs. With a
-          proven track record in project management, stakeholder engagement, and
-          critical thinking, I bring a unique blend of technical skills and
-          social impact focus. My experience spans graphic design, website
-          development, and program coordination, enhanced by international
-          exposure through prestigious global learning programs.
+      <!-- section preview shortcut for aesthetics -->
+      <section class="section-preview-wrapper">
+        <div class="section-preview left">
+          <a href="#education">Education</a>
+        </div>
+        <div class="section-preview left"><a href="#about">About Me</a></div>
+        <div class="section-preview right"><a href="#skills">Skills</a></div>
+        <div class="section-preview left">
+          <a href="#experience">Experience</a>
+        </div>
+        <div class="section-preview right">
+          <a href="#projects">Projects</a>
+        </div>
+        <div class="section-preview left"><a href="#awards">Awards</a></div>
+        <div class="section-preview right">
+          <a href="#contact">Contact</a>
+        </div>
+      </section>
+      <!-- about me section -->
+      <section id="about" class="about-section">
+        <h2 class="text-center mt-2">About Me</h2>
+        <p class="about-text">
+          Inventive, artistic, and driven student with excellent organizational
+          and interpersonal skills. Seeking to employ a trans-disciplinary
+          outlook geared towards designing sustainable and reliable
+          infrastructure systems aided by the use of specialised computer
+          programs. Committed to driving access and equity policies that create
+          opportunity for all.
         </p>
       </section>
+
+      <section id="education">
+        <!-- education history section -->
+
+        <h2 class="text-center mt-2">Education</h2>
+        <ul class="text-center">
+          <li>
+            African Leadership University – BSc in Software Engineering (2024 -
+            Present)
+          </li>
+          <li>JSAY Prevarsity – CIE A Levels (2022 - 2024)</li>
+          <li>Ibadan International School – IGCSE (2016 - 2021)</li>
+        </ul>
+      </section>
+      <!-- skills section -->
+      <section id="skills">
+        <h2 class="text-center mt-2">Skills</h2>
+        <ul class="text-center">
+          <li>Design: Canva, Figma, Adobe Illustrator</li>
+          <li>Development: HTML5, CSS3, JavaScript, TypeScript</li>
+          <li>Soft Skills: Project Management, Leadership, Communication</li>
+          <li>Languages: English (Fluent), French (Basic), Yoruba (Fluent)</li>
+        </ul>
+      </section>
+      <!-- experience section -->
+      <section id="experience">
+        <h2 class="text-center mt-2">Experience</h2>
+        <ul class="text-center">
+          <li>Student Recruiter – ALU Call Center, Kigali (2024 - Present)</li>
+          <li>
+            Software Development Trainee – TheGym Software Dev Program (2024 -
+            Present)
+          </li>
+          <li>
+            Assistant Teacher – Ibadan International School (July - Aug 2022)
+          </li>
+        </ul>
+      </section>
+      <!-- projects section -->
+      <section id="projects">
+        <h2 class="text-center mt-2">Projects</h2>
+        <ul class="text-center">
+          <li>
+            Mentorship Web App – Connects Kigali women to mentors via
+            category-based filters
+          </li>
+          <li>Fully responsive University website – Complete replica</li>
+          <li>
+            All-inclusive productivity & txime-tracking web app – Focus time and
+            automating time-tracking
+          </li>
+        </ul>
+      </section>
+      <!-- awards section -->
+      <section id="awards">
+        <h2 class="text-center mt-2">Awards & Global Programs</h2>
+        <ul class="text-center">
+          <li>Yale Young African Scholars (YYAS) Alumnus – 2022</li>
+          <li>Generation Global – Member (2023 - Present)</li>
+          <li>NYUAD Course: African Perspectives on Tech – Jan 2025</li>
+          <li>Ethical Leadership Exchange with CU Boulder – May 2025</li>
+        </ul>
+      </section>
+      <!-- contact section -->
+      <section id="contact">
+        <h2 class="text-center mt-2">Contact Me</h2>
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <!-- contact form -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="Your email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <!-- submit button -->
+          <button type="submit" class="submit-btn">Send</button>
+        </form>
+      </section>
     </main>
-
-    <!-- Scroll to Top -->
-    <button class="scroll-top" onclick="scrollToTop()">↑</button>
-
+    <!-- scroll to the top of webpage button -->
+    <button class="scroll-top" id="scrollTopBtn">↑</button>
     <script src="/assets/script.js"></script>
   </body>
 </html>
